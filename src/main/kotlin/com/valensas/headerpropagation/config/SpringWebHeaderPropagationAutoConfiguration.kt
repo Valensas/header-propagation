@@ -2,7 +2,6 @@ package com.valensas.headerpropagation.config
 
 import com.valensas.headerpropagation.interceptor.WebHeaderExtractorFilter
 import com.valensas.headerpropagation.properties.HeaderPropagationProperties
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.client.RestTemplateCustomizer
@@ -13,7 +12,6 @@ import org.springframework.core.annotation.Order
 import org.springframework.http.HttpRequest
 import org.springframework.http.client.ClientHttpRequestExecution
 import org.springframework.http.client.ClientHttpRequestInterceptor
-import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.filter.OncePerRequestFilter
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
