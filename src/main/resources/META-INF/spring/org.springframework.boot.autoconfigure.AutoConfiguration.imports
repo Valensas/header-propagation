@@ -1,0 +1,3 @@
+com.valensas.headerpropagation.config.HeaderPropagationAutoConfiguration
+com.valensas.headerpropagation.config.KafkaInterceptorConfig
+com.valensas.headerpropagation.config.FeignConfiguration
