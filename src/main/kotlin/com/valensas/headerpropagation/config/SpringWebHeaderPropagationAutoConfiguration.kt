@@ -19,7 +19,6 @@ import org.springframework.web.filter.OncePerRequestFilter
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
-@ConditionalOnClass(KafkaTemplate::class)
 @EnableConfigurationProperties(HeaderPropagationProperties::class)
 @ConditionalOnProperty(
     prefix = "spring.web.propagation",

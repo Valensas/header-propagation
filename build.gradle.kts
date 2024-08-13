@@ -28,7 +28,7 @@ dependencies {
     compileOnly("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1")
     compileOnly("org.springframework.boot:spring-boot-starter-web")
 
-    compileOnly("com.valensas:kafka:0.2.2")
+    compileOnly("com.valensas:kafka:0.3.0")
 }
 
 tasks.withType<KotlinCompile> {

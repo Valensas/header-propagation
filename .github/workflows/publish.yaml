@@ -20,7 +20,10 @@ jobs:
           distribution: oracle
           cache: 'gradle'
       - name: Publish
-        run: ./gradlew publishToCentralPortal
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "Publishing version '${VERSION}'"
+          ./gradlew "-Pversion=$VERSION" publishToCentralPortal
         env:
           SIGNING_PASSPHRASE: ${{ secrets.SIGNING_PASSPHRASE }}
           SIGNING_SECRETKEY: ${{ secrets.SIGNING_SECRETKEY }}

@@ -16,7 +16,6 @@ class KafkaHeaderPropagationConsumerInterceptor<K, V>() : ConsumerInterceptor<K,
     private lateinit var applicationContext: ApplicationContext
 
     override fun onConsume(records: ConsumerRecords<K, V>): ConsumerRecords<K, V> {
-        println("I WORK HERE")
         records.forEach(
             Consumer { record: ConsumerRecord<K, V> ->
                 val headers = record.headers()

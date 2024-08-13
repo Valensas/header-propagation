@@ -3,7 +3,7 @@ on:
   pull_request:
   workflow_call:
   push:
-    branches: [ 'master' ]
+    branches: [ 'main' ]
     # Don't run on tags, publish will call this workflow
     tags-ignore: [ '**' ]
 
