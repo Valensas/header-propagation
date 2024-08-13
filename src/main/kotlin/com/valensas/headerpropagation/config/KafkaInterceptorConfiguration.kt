@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration
     havingValue = "true",
     matchIfMissing = true
 )
-class KafkaInterceptorConfig {
+class KafkaInterceptorConfiguration {
     @Bean
     fun kafkaHeaderPropagationConsumerInterceptor(
         headerPropagationProperties: HeaderPropagationProperties

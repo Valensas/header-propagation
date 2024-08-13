@@ -26,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
     name = ["enabled"],
     havingValue = "true"
 )
-class HeaderPropagationAutoConfiguration : WebMvcConfigurer {
+class SpringWebHeaderPropagationAutoConfiguration : WebMvcConfigurer {
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     fun headerPropagationFilter(headerPropagationProperties: HeaderPropagationProperties): OncePerRequestFilter {
