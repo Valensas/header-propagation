@@ -11,11 +11,9 @@ import org.apache.kafka.common.header.Header
 import org.springframework.context.ApplicationContext
 import java.util.function.Consumer
 
-class KafkaHeaderPropagationConsumerInterceptor<K, V> (
-): ConsumerInterceptor<K, V> {
+class KafkaHeaderPropagationConsumerInterceptor<K, V>() : ConsumerInterceptor<K, V> {
     private lateinit var headerPropagationProperties: HeaderPropagationProperties
-    private lateinit var applicationContext : ApplicationContext
-
+    private lateinit var applicationContext: ApplicationContext
 
     override fun onConsume(records: ConsumerRecords<K, V>): ConsumerRecords<K, V> {
         println("I WORK HERE")
@@ -47,6 +45,4 @@ class KafkaHeaderPropagationConsumerInterceptor<K, V> (
         applicationContext = configs["applicationContext"] as ApplicationContext
         headerPropagationProperties = applicationContext.getBean(HeaderPropagationProperties::class.java)
     }
-
-
 }
