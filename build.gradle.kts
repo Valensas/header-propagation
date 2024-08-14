@@ -13,7 +13,6 @@ plugins {
 
 group = "com.valensas"
 java.sourceCompatibility = JavaVersion.VERSION_17
-version = "0.1.0"
 
 repositories {
     mavenCentral()
@@ -28,7 +27,7 @@ dependencies {
     compileOnly("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1")
     compileOnly("org.springframework.boot:spring-boot-starter-web")
 
-    compileOnly("com.valensas:kafka:0.3.0-1")
+    compileOnly("com.valensas:kafka:0.3.0")
 }
 
 tasks.withType<KotlinCompile> {
