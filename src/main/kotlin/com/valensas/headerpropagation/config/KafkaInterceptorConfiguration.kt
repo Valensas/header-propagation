@@ -2,17 +2,16 @@ package com.valensas.headerpropagation.config
 
 import com.valensas.headerpropagation.interceptor.KafkaHeaderPropagationConsumerInterceptor
 import com.valensas.headerpropagation.interceptor.KafkaHeaderPropagationProducerInterceptor
-import com.valensas.headerpropagation.properties.HeaderPropagationProperties
+import com.valensas.kafka.config.ConsumerInterceptorClassHolder
+import com.valensas.kafka.config.ProducerInterceptorClassHolder
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.core.KafkaTemplate
 
 @Configuration
 @ConditionalOnClass(KafkaTemplate::class)
-@EnableConfigurationProperties(HeaderPropagationProperties::class)
 @ConditionalOnProperty(
     prefix = "spring.kafka.propagation",
     name = ["enabled"],
@@ -21,14 +20,16 @@ import org.springframework.kafka.core.KafkaTemplate
 )
 class KafkaInterceptorConfiguration {
     @Bean
-    fun kafkaHeaderPropagationConsumerInterceptor(
-        headerPropagationProperties: HeaderPropagationProperties
-    ): KafkaHeaderPropagationConsumerInterceptor<Any, Any> {
-        return KafkaHeaderPropagationConsumerInterceptor()
+    fun kafkaHeaderPropagationConsumerInterceptorClassHolder(): ConsumerInterceptorClassHolder {
+        return ConsumerInterceptorClassHolder(
+            KafkaHeaderPropagationConsumerInterceptor::class.java
+        )
     }
 
     @Bean
-    fun kafkaHeaderPropagationProducerInterceptor(): KafkaHeaderPropagationProducerInterceptor<Any, Any> {
-        return KafkaHeaderPropagationProducerInterceptor()
+    fun kafkaHeaderPropagationProducerInterceptorClassHolder(): ProducerInterceptorClassHolder {
+        return ProducerInterceptorClassHolder(
+            KafkaHeaderPropagationProducerInterceptor::class.java
+        )
     }
 }
