@@ -13,6 +13,7 @@ plugins {
 
 group = "com.valensas"
 java.sourceCompatibility = JavaVersion.VERSION_17
+version = "0.1.0"
 
 repositories {
     mavenCentral()
@@ -27,7 +28,7 @@ dependencies {
     compileOnly("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1")
     compileOnly("org.springframework.boot:spring-boot-starter-web")
 
-    compileOnly("org.springframework.kafka:spring-kafka")
+    compileOnly("com.valensas:kafka:0.3.0-1")
 }
 
 tasks.withType<KotlinCompile> {
@@ -62,7 +63,7 @@ centralPortal {
     password = System.getenv("SONATYPE_PASSWORD")
 
     pom {
-        name = "Valensas Kafka"
+        name = "Valensas Header Propagation"
         description = "This library contains the configurable header propagation implementation for kafka and spring web mvc also feign client"
         url = "https://valensas.com/"
         scm {
