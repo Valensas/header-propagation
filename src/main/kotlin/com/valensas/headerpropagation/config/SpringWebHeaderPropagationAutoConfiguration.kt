@@ -2,6 +2,7 @@ package com.valensas.headerpropagation.config
 
 import com.valensas.headerpropagation.interceptor.WebHeaderExtractorFilter
 import com.valensas.headerpropagation.properties.HeaderPropagationProperties
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.client.RestTemplateCustomizer
@@ -17,11 +18,13 @@ import org.springframework.web.filter.OncePerRequestFilter
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
+@ConditionalOnClass(RestTemplate::class)
 @EnableConfigurationProperties(HeaderPropagationProperties::class)
 @ConditionalOnProperty(
-    prefix = "spring.web.propagation",
+    prefix = "spring.header-propagation.rest",
     name = ["enabled"],
-    havingValue = "true"
+    havingValue = "true",
+    matchIfMissing = true
 )
 class SpringWebHeaderPropagationAutoConfiguration : WebMvcConfigurer {
     @Bean
