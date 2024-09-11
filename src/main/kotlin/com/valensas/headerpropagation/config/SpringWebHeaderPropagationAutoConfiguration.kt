@@ -21,7 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @ConditionalOnClass(RestTemplate::class)
 @EnableConfigurationProperties(HeaderPropagationProperties::class)
 @ConditionalOnProperty(
-    prefix = "spring.header-propagation.rest",
+    prefix = "header-propagation.rest",
     name = ["enabled"],
     havingValue = "true",
     matchIfMissing = true

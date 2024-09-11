@@ -16,7 +16,7 @@ import org.springframework.kafka.core.KafkaTemplate
 @ConditionalOnClass(KafkaTemplate::class)
 @EnableConfigurationProperties(HeaderPropagationProperties::class)
 @ConditionalOnProperty(
-    prefix = "spring.header-propagation.kafka",
+    prefix = "header-propagation.kafka",
     name = ["enabled"],
     havingValue = "true",
     matchIfMissing = true

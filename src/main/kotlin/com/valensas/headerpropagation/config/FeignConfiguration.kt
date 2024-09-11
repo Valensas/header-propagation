@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration
 @ConditionalOnClass(feign.RequestInterceptor::class)
 @EnableConfigurationProperties(HeaderPropagationProperties::class)
 @ConditionalOnProperty(
-    prefix = "spring.header-propagation.feign",
+    prefix = "header-propagation.feign",
     name = ["enabled"],
     havingValue = "true",
     matchIfMissing = true
