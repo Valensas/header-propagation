@@ -26,11 +26,10 @@ When a kafka message or http request is sent, the headers are read from the Thre
 You can configure the headers that you want to propagate in your properties file.
 
 ```yaml
-spring:
-  header-propagation:
-    headers: 
-      - header1
-      - header2
+header-propagation:
+  headers: 
+    - header1
+    - header2
 ```
 
 ### Kafka
@@ -38,9 +37,8 @@ spring:
 Enable the kafka propagation in your properties file.
 
 ```yaml
-spring:
-  header-propagation:
-    kafka.enabled: true
+header-propagation:
+  kafka.enabled: true
 ```
 
 When you send a message to kafka using the `KafkaTemplate`, the headers that exist in the thread local store will be added to the message headers automatically.
@@ -52,9 +50,8 @@ When a consumer function annotated with @KafkaListener receives a message, the h
 Enable the rest propagation in your properties file.
 
 ```yaml
-spring:
-  header-propagation:
-    rest.enabled: true
+header-propagation:
+  rest.enabled: true
 ```
 
 When you send a request using the `RestTemplate`, the headers that exist in the thread local store will be added to the request headers automatically.
@@ -66,9 +63,8 @@ When a controller method receives a request, the headers are stored in the Threa
 Enable the feign propagation in your properties file.
 
 ```yaml
-spring:
-  header-propagation:
-    feign.enabled: true
+header-propagation:
+  feign.enabled: true
 ```
 
 When you send a request using the `FeignClient`, the headers that exist in the thread local store will be added to the request headers automatically.
