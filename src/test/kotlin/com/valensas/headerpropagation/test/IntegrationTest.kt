@@ -59,9 +59,10 @@ class IntegrationTest(
         embeddedKafkaBroker.consumeFromAnEmbeddedTopic(consumer, "rest-to-kafka-output")
 
         val requestEntity = HttpEntity(null, HttpHeaders().also { it.set(Fake.taskKey, Fake.taskValue) })
-        restTemplate.postForEntity("/test/rest-to-kafka", requestEntity, String::class.java)
 
+        restTemplate.postForEntity("/test/rest-to-kafka", requestEntity, String::class.java)
         val record = KafkaTestUtils.getSingleRecord(consumer, "rest-to-kafka-output")
+
         val headerValue = record.headers().headers(Fake.taskKey).iterator().next().value()
         assertEquals(Fake.taskValue, String(headerValue))
     }
@@ -98,9 +99,10 @@ class IntegrationTest(
         embeddedKafkaBroker.consumeFromAnEmbeddedTopic(consumer, "kafka-to-feign-output")
 
         ThreadLocalHeaderStore.headers = mapOf(Fake.taskKey to Fake.taskValue)
-        kafkaTemplate.send(ProducerRecord("kafka-to-feign-input", Fake.testMessage()))
 
+        kafkaTemplate.send(ProducerRecord("kafka-to-feign-input", Fake.testMessage()))
         val record = KafkaTestUtils.getSingleRecord(consumer, "kafka-to-feign-output")
+
         val headerValue = record.headers().headers(Fake.taskKey).iterator().next().value()
         assertEquals(Fake.taskValue, String(headerValue))
     }
