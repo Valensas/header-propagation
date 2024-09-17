@@ -9,23 +9,6 @@ spring:
       bootstrap-servers: ${kafka.endpoint}
       group-id: test-group
       enabled: true
-  cloud:
-    discovery:
-      enabled: false
-test:
-  feign:
-    client:
-      url: "http://localhost:13333"
-
-kafka:
-  endpoint: ${spring.embedded.kafka.brokers}
-
-header-propagation:
-  feign.enabled: true
-  rest.enabled: true
-  kafka.enabled: true
-  headers:
-    - task-name
 
 springwolf:
   docket:
@@ -37,3 +20,18 @@ springwolf:
       kafka:
         host: localhost:9092
         protocol: kafka
+
+kafka:
+  endpoint: ${spring.embedded.kafka.brokers}
+
+header-propagation:
+  feign.enabled: true
+  rest.enabled: true
+  kafka.enabled: true
+  headers:
+    - task-name
+
+test:
+  feign:
+    client:
+      url: "http://localhost:13333"
