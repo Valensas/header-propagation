@@ -31,18 +31,9 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.github.springwolf:springwolf-kafka:1.4.0")
     testImplementation("com.valensas:kafka:0.3.0")
     testImplementation("org.springframework.kafka:spring-kafka-test")
-    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
     testImplementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1")
-
-
-    // WireMock
-    testImplementation("org.wiremock:wiremock:3.9.1")
-
-    // Awaitility for asynchronous tests
-    testImplementation("org.awaitility:awaitility-kotlin:4.2.0")
 }
 
 tasks.withType<KotlinCompile> {
