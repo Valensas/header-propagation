@@ -1,0 +1,8 @@
+package com.valensas.headerpropagation
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.cloud.openfeign.EnableFeignClients
+
+@SpringBootApplication
+@EnableFeignClients
+class HeaderPropagationTestApplication

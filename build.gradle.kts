@@ -28,6 +28,12 @@ dependencies {
     compileOnly("org.springframework.boot:spring-boot-starter-web")
 
     compileOnly("com.valensas:kafka:0.3.0")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-web")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("com.valensas:kafka:0.3.0")
+    testImplementation("org.springframework.kafka:spring-kafka-test")
+    testImplementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1")
 }
 
 tasks.withType<KotlinCompile> {
